@@ -8,5 +8,5 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 ```
 Next, open `nvim` (ignore error messages) and install packages with `:PackerSync` command.
 
-! Don't forget to install Nerd Fonts and setting them for your terminal.
+! Don't forget to install Nerd Fonts and to set them for your terminal.
 ! It might help to remove `~/.config/nvim/plugin/packer_compiled.lua` before installing packer.
