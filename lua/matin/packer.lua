@@ -2,6 +2,13 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use('lewis6991/gitsigns.nvim')
+    use('romgrk/barbar.nvim')
+    use('nvim-tree/nvim-web-devicons')
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use 'wbthomason/packer.nvim'
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -10,10 +17,7 @@ return require('packer').startup(function(use)
     }
     use({
         'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
+        as = 'rose-pine'
     })
     use('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
     use('ThePrimeagen/harpoon')
