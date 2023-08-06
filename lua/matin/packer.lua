@@ -1,7 +1,35 @@
-
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
+    use('ggandor/leap.nvim')
+    use({
+        'nmac427/guess-indent.nvim',
+        config = function() require('guess-indent').setup {} end,
+    })
+    use('RRethy/vim-illuminate')
+    use({
+        'folke/todo-comments.nvim',
+        requires = {'nvim-lua/plenary.nvim'}
+    })
+    use('simrat39/symbols-outline.nvim')
+    use({
+        'aserowy/tmux.nvim',
+        config = function() return require("tmux").setup() end
+    })
+    use('folke/trouble.nvim')
     use('lewis6991/gitsigns.nvim')
     use('romgrk/barbar.nvim')
     use('nvim-tree/nvim-web-devicons')
@@ -11,9 +39,11 @@ return require('packer').startup(function(use)
     }
     use 'wbthomason/packer.nvim'
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        'nvim-telescope/telescope.nvim',
+        requires = { 
+            'nvim-lua/plenary.nvim',
+            "debugloop/telescope-undo.nvim",
+        }
     }
     use({
         'rose-pine/neovim',
